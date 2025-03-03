@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 function Login(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -8,6 +9,7 @@ function Login(){
     const [loginMessageColor, setLoginMessageColor] = useState('red');
     const [emailBorder, setEmailBorder] = useState('#ccc');
     const [passwordBorder, setPasswordEBorder] = useState('#ccc')
+    const navigate = useNavigate();
     const handleLogin = function(event){
         event.preventDefault();
         if(!email){
@@ -84,8 +86,12 @@ function Login(){
                 setPasswordError("");
                 setPasswordEBorder("#ccc");
                 setEmailBorder("#ccc");
+                return;
             }
             setLoginError("Login was successfully done!!");
+            navigate('/dashboard');
+            localStorage.setItem("token",data.token);
+            localStorage.setItem("isLogedIn",true);
             setLoginMessageColor('green');
             setEmailError("");
             setPasswordError("");
