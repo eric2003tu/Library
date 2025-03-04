@@ -13,6 +13,8 @@ import Posts from './Posts';
 import Greeting from './Greeting';
 import Fetchusers from './Fetchusers';
 import DashHome from './dashHome';
+import jwt from 'jsonwebtoken';
+import Cookies from 'js-cookie';
 function Dashboard(){
     const navigate = useNavigate();
     if(!localStorage.getItem('token') || localStorage.getItem("isLogedIn") !== 'true'){
