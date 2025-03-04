@@ -36,11 +36,12 @@ function Login(){
             setPasswordError("Fill in the password first");
             return;
         }
-        fetch("https://blogs-authentication.onrender.com/user/signin", {
+        fetch("https://library-management-6x6d.onrender.com/api/user/login", {
             method: 'POST',
             headers:{
                 "Content-Type": "application/json",
             },
+            credentials : "include",
             body: JSON.stringify({
                 email: email,
                 password: password
@@ -86,10 +87,8 @@ function Login(){
                 setPasswordError("");
                 setPasswordEBorder("#ccc");
                 setEmailBorder("#ccc");
-                return;
             }
             setLoginError("Login was successfully done!!");
-            navigate('/dashboard');
             localStorage.setItem("token",data.token);
             localStorage.setItem("isLogedIn",true);
             setLoginMessageColor('green');
@@ -97,6 +96,9 @@ function Login(){
             setPasswordError("");
             setEmailBorder("#ccc");
             setPasswordEBorder("#ccc");
+            setTimeout(function(){
+                navigate('/dashboard');
+            },4000)
         })
         .catch(function(error){
             console.error("Failed to login: ", error);

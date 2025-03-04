@@ -1,250 +1,145 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Signup.css';
-function Signup(){
-    const signup = function(event){
+
+function Signup() {
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [usernameError, setUsernameError] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const [confirmPasswordError, setConfirmPasswordError] = useState('');
+    const [submitError, setSubmitError] = useState('');
+    const [emailBorder, setEmailBorder] = useState('#ccc');
+    const [passwordBorder, setPasswordEBorder] = useState('#ccc')
+
+    const handleSubmit = (event) => {
         event.preventDefault();
-        const username = document.getElementById("username").value.trim(); 
-        const email = document.getElementById("email").value.trim();
-        const password =document.getElementById("password").value.trim();
-        const confirmPassword = document.getElementById("confirmPassword").value.trim();
-        const usernameError = document.getElementById("usernameError");
-        const emailerror = document.getElementById("emailError");
-        const passwordError = document.getElementById("passwordError");
-        const confirmPasswordError = document.getElementById("confirmPasswordError");
-        const submitError = document.getElementById("submitError");
-        if(!username){
-            usernameError.textContent = "Please enter a username";
-            usernameError.style.display = "block";
-            usernameError.style.color = "red";
-            emailerror.style.display = "none";
-            passwordError.style.display = "none";
-            confirmPasswordError.style.display = "none"
-            submitError.style.display = "none";
-            document.getElementById("username").style.borderColor = "red";
-            document.getElementById("email").style.borderColor = "#ccc";
-            document.getElementById("password").style.borderColor = "#ccc";
-            document.getElementById("confirmPassword").style.borderColor = "#ccc"; 
+
+        // Reset errors
+        setUsernameError('');
+        setEmailError('');
+        setPasswordError('');
+        setConfirmPasswordError('');
+        setSubmitError('');
+
+        // Validation logic
+        if (!username) {
+            setUsernameError('Please enter a username');
+            return;
+        } else if (username.length <= 2) {
+            setUsernameError('Enter a valid username');
             return;
         }
-        else if(username.length <=2){
-            usernameError.textContent = "Entaer a valid username";
-            usernameError.style.display = "block";
-            usernameError.style.color = "red";
-            emailerror.style.display = "none";
-            passwordError.style.display = "none";
-            confirmPasswordError.style.display = "none"
-            submitError.style.display = "none";
-            document.getElementById("username").style.borderColor = "red";
-            document.getElementById("email").style.borderColor = "#ccc";
-            document.getElementById("password").style.borderColor = "#ccc";
-            document.getElementById("confirmPassword").style.borderColor = "#ccc"; 
+
+        if (!email) {
+            setEmailError('Email cannot be empty');
+            return;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            setEmailError('Enter a valid email address');
             return;
         }
-        else if(!email){
-            usernameError.style.display = "none";
-            emailerror.style.display = "block";
-            emailerror.style.color = "red";
-            emailerror.textContent = "Email can not be Empty.";
-            passwordError.style.display = "none";
-            confirmPasswordError.style.display = "none"
-            submitError.style.display = "none";
-            document.getElementById("username").style.borderColor = "#ccc";
-            document.getElementById("email").style.borderColor = "red";
-            document.getElementById("password").style.borderColor = "#ccc";
-            document.getElementById("confirmPassword").style.borderColor = "#ccc"; 
+
+        if (!password) {
+            setPasswordError('Password is required');
+            return;
+        } else if (!/[a-z]/.test(password) || !/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
+            setPasswordError('Password must be strong and valid');
             return;
         }
-        else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-            usernameError.style.display = "none";
-            emailerror.style.display = "block";
-            emailerror.style.color = "red";
-            emailerror.textContent = "Enter a valid email address.";
-            passwordError.style.display = "none";
-            confirmPasswordError.style.display = "none"
-            submitError.style.display = "none";
-            document.getElementById("username").style.borderColor = "#ccc";
-            document.getElementById("email").style.borderColor = "red";
-            document.getElementById("password").style.borderColor = "#ccc";
-            document.getElementById("confirmPassword").style.borderColor = "#ccc"; 
+
+        if (!confirmPassword) {
+            setConfirmPasswordError('Confirm password first');
+            return;
+        } else if (confirmPassword !== password) {
+            setConfirmPasswordError('Passwords do not match');
             return;
         }
-        else if(!password){
-            usernameError.style.display = "none";
-            emailerror.style.display = "none";
-            passwordError.style.color = "red";
-            passwordError.textContent = "Password is required.";
-            passwordError.style.display = "block";
-            confirmPasswordError.style.display = "none"
-            submitError.style.display = "none";
-            document.getElementById("username").style.borderColor = "#ccc";
-            document.getElementById("email").style.borderColor = "#ccc";
-            document.getElementById("password").style.borderColor = "red";
-            document.getElementById("confirmPassword").style.borderColor = "#ccc"; 
-            return;
-        }
-        else if(!/[a-z]/.test(password) || !/[A-Z]/.test(password) || !/^[a-zA-Z0-9]/.test(password) || !/[0-9]/.test(password)){
-            usernameError.style.display = "none";
-            emailerror.style.display = "none";
-            passwordError.style.color = "red";
-            passwordError.textContent = "Password must be strong and valid.";
-            passwordError.style.display = "block";
-            confirmPasswordError.style.display = "none"
-            submitError.style.display = "none";
-            document.getElementById("username").style.borderColor = "#ccc";
-            document.getElementById("email").style.borderColor = "#ccc";
-            document.getElementById("password").style.borderColor = "red";
-            document.getElementById("confirmPassword").style.borderColor = "#ccc"; 
-            return;
-        }
-        else if(!confirmPassword){
-            usernameError.style.display = "none";
-            emailerror.style.display = "none";
-            confirmPasswordError.style.color = "red";
-            confirmPasswordError.textContent = "Confirm password First";
-            passwordError.style.display = "none";
-            confirmPasswordError.style.display = "block"
-            submitError.style.display = "none";
-            document.getElementById("username").style.borderColor = "#ccc";
-            document.getElementById("email").style.borderColor = "#ccc";
-            document.getElementById("password").style.borderColor = "#ccc";
-            document.getElementById("confirmPassword").style.borderColor = "red"; 
-            return;
-        }
-        else if(confirmPassword !== password){
-            usernameError.style.display = "none";
-            emailerror.style.display = "none";
-            confirmPasswordError.style.color = "red";
-            confirmPasswordError.textContent = "Passwords do not match";
-            passwordError.style.display = "none";
-            confirmPasswordError.style.display = "block"
-            submitError.style.display = "none";
-            document.getElementById("username").style.borderColor = "#ccc";
-            document.getElementById("email").style.borderColor = "#ccc";
-            document.getElementById("password").style.borderColor = "#ccc";
-            document.getElementById("confirmPassword").style.borderColor = "red"; 
-            return;
-        }
-        fetch("https://blogs-authentication.onrender.com/user/register",{
-            method: "POST",
-            headers:{
-                "Content-Type": "application/json",
+
+        // Submit form
+        fetch('https://blogs-authentication.onrender.com/user/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
             },
-            body:JSON.stringify ({
+            body: JSON.stringify({
                 username: username,
                 email: email,
-                password: password, 
+                password: password,
             }),
         })
-        .then(function(response){
-            if(!response.ok){
-                if(response.status === 404){
-                    usernameError.style.display = "none";
-                    emailerror.style.display = "none";
-                    passwordError.style.display = "none";
-                    submitError.textContent = "Could not register the user";
-                    confirmPasswordError.style.display = "none";
-                    submitError.style.display = "block";
-                    submitError.style.color = "red";
-                    document.getElementById("username").style.borderColor = "#ccc";
-                    document.getElementById("email").style.borderColor = "#ccc";
-                    document.getElementById("password").style.borderColor = "#ccc";
-                    document.getElementById("confirmPassword").style.borderColor = "none";
-                    setTimeout(function(){
-                        submitError.style.display = "none";
-                    },5000) 
-                    throw new Error("Could not register the user");
+            .then((response) => {
+                if (!response.ok) {
+                    if (response.status === 404) {
+                        throw new Error('Could not register the user');
+                    } else if (response.status === 500) {
+                        throw new Error('Internal server error');
+                    } else if (response.status === 409) {
+                        throw new Error('User already exists');
+                    }
                 }
-                else if(response.status === 500){
-                    usernameError.style.display = "none";
-                    emailerror.style.display = "none";
-                    passwordError.style.display = "none";
-                    submitError.textContent = "Internaml server error";
-                    confirmPasswordError.style.display = "none";
-                    submitError.style.display = "block";
-                    submitError.style.color = "red";
-                    document.getElementById("username").style.borderColor = "#ccc";
-                    document.getElementById("email").style.borderColor = "#ccc";
-                    document.getElementById("password").style.borderColor = "#ccc";
-                    document.getElementById("confirmPassword").style.borderColor = "none";
-                    setTimeout(function(){
-                        submitError.style.display = "none";
-                    },5000) 
-                    throw new Error("Internal server error");
-                }
-                else if(response.status === 409){
-                    usernameError.style.display = "none";
-                    emailerror.style.display = "none";
-                    passwordError.style.display = "none";
-                    submitError.textContent = "User already exists.";
-                    confirmPasswordError.style.display = "none";
-                    submitError.style.display = "block";
-                    submitError.style.color = "red";
-                    document.getElementById("username").style.borderColor = "#ccc";
-                    document.getElementById("email").style.borderColor = "#ccc";
-                    document.getElementById("password").style.borderColor = "#ccc";
-                    document.getElementById("confirmPassword").style.borderColor = "none";
-                    setTimeout(function(){
-                        submitError.style.display = "none";
-                    },5000) 
-                }
-            }
-            return response.json();
-        })
-        .then(function(data){
-            if(data.ok)
-{                        usernameError.style.display = "none";
-                emailerror.style.display = "none";
-                passwordError.style.display = "none";
-                submitError.textContent = "User registered successfully";
-                confirmPasswordError.style.display = "block";
-                submitError.style.display = "block";
-                submitError.style.color = "green";
-                document.getElementById("username").style.borderColor = "#ccc";
-                document.getElementById("email").style.borderColor = "#ccc";
-                document.getElementById("password").style.borderColor = "#ccc";
-                document.getElementById("confirmPassword").style.borderColor = "none";
-                setTimeout(function(){
-                    submitError.style.display = "none";
-                },5000) 
-            
-    }})
-        .catch(function(error){
-            console.error("Failed to submit the form: ",error);
-            usernameError.style.display = "none";
-            emailerror.style.display = "none";
-            passwordError.style.display = "none";
-            submitError.textContent = "Failed to submit the form";
-            confirmPasswordError.style.display = "none";
-            submitError.style.display = "block";
-            submitError.style.color = "red";
-            document.getElementById("username").style.borderColor = "#ccc";
-            document.getElementById("email").style.borderColor = "#ccc";
-            document.getElementById("password").style.borderColor = "#ccc";
-            document.getElementById("confirmPassword").style.borderColor = "none";
-            setTimeout(function(){
-                submitError.style.display = "none";
-            },5000) 
-        });
-    }
-    return(
-        <form id='signupForm' onSubmit={signup}>
-            <h1 id='signUpHeader'>Signup Form</h1>
-            <p id='submitError'></p>
-            <label htmlFor ='Username'>Username</label>
-            <input type='text' id='username' name='Username' placeholder='Enter a username here'/>
-            <p id='usernameError'></p>
-            <label htmlFor ='Email'>Email</label>
-            <input type='email' id='email' name='Email' placeholder='Enter oyur email here'/>
-            <p id='emailError'></p>
-            <label htmlFor = 'Password'>Password</label>
-            <input type = 'password' id='password' name='password' placeholder='Enter the password to be used here'/>
-            <p id='passwordError'></p>
-            <label htmlFor ='ponfirmpassword'>Confirm password</label>
-            <input type='password' id='confirmPassword' name = 'Confirmpassword' placeholder=' Re-type your password'/>
-            <p id='confirmPasswordError'></p>
-            <button type='submit' id='submitButton' name='submit'>Submit</button>
+                return response.json();
+            })
+            .then((data) => {
+                setSubmitError('User registered successfully');
+                setTimeout(() => setSubmitError(''), 5000);
+            })
+            .catch((error) => {
+                setSubmitError(error.message);
+                setTimeout(() => setSubmitError(''), 5000);
+            });
+    };
 
+    return (
+        <form id="signupForm" onSubmit={handleSubmit}>
+            <h1 id="signUpHeader">Signup Form</h1>
+            {submitError && <p id="submitError" style={{ color: submitError.includes('successfully') ? 'green' : 'red' }}>{submitError}</p>}
+            <label htmlFor="username">Username</label>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter a username here"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+            />
+            {usernameError && <p id="usernameError" style={{ color: 'red' }}>{usernameError}</p>}
+            <label htmlFor="email">Email</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email here"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+            />
+            {emailError && <p id="emailError" style={{ color: 'red' }}>{emailError}</p>}
+            <label htmlFor="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter the password to be used here"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+            />
+            {passwordError && <p id="passwordError" style={{ color: 'red' }}>{passwordError}</p>}
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Re-type your password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            {confirmPasswordError && <p id="confirmPasswordError" style={{ color: 'red' }}>{confirmPasswordError}</p>}
+            <button type="submit" id="submitButton" name="submit">
+                Submit
+            </button>
         </form>
-    )
+    );
 }
+
 export default Signup;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaFacebookF  } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { FaSquareWhatsapp } from "react-icons/fa6";
@@ -6,7 +7,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { IoCallSharp } from "react-icons/io5";
 
 import '../styles/App.css';
-function Home(){
+function DashHome(){
     return(
 <div id='all'>
 <div id='contents'>
@@ -28,6 +29,7 @@ Join our growing community of satisfied customers who trust [Your Company Name] 
     <img id='img2' src='https://images.pexels.com/photos/1837726/pexels-photo-1837726.jpeg' alt='book'/>
 </div>
 </div>
+<Link to = '/dashboard' id='borrow'>Borrow Book</Link>
 <div id= 'bottom'><p id='abouta'>About Us</p>
 <div id ='about'>
     <div>
@@ -46,14 +48,11 @@ Get in touch with us through the Contact Us section, where you'll find all the w
 <FaSquareWhatsapp id='whatsapp-icon' />
 <FaSquareXTwitter id='twitter-icon'/>
 <IoCallSharp id='call-icon'/>
-
-
-
 </div>
 
 </div>
 <div id='footer'>
-    <div class="footer-bottom">
+    <div className="footer-bottom">
         <p>© 2025 E-library. All Rights Reserved.</p>
     </div>
 </div>
@@ -61,4 +60,4 @@ Get in touch with us through the Contact Us section, where you'll find all the w
 </div>
     )
 }
-export default Home;
+export default DashHome;

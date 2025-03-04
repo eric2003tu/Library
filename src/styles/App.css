@@ -2,7 +2,7 @@ nav{
   display: flex;
   background-color: rgb(60, 60, 214);
   color: white;
-  gap: 15px;
+  gap: 4px;
   font-family: sans-serif;
   font-weight: bold;
   align-items: end;
@@ -10,7 +10,7 @@ nav{
   width: 100%;
   top: 0;
   z-index: 1000;
-  padding: 10px 10px;
+  padding: 15px 15px;
   text-align: center;
   position: fixed;
   margin-bottom: 20px;
@@ -19,7 +19,7 @@ nav{
 #link{
   color: white;
   right: 5px;
-  gap: 5px;
+  gap: 3px;
   text-decoration: none;
   font-size: 20px;
   font-family: sans-serif;
@@ -36,6 +36,14 @@ nav{
   position: relative;
   align-items: center;
   align-self: center;
+}
+#dash{
+  align-items: center;
+  align-self: center;
+  position: relative;
+  display: flex;
+  text-align: center;
+  margin-left: 60%;
 }
 #contents {
   display: grid;
@@ -94,7 +102,7 @@ nav{
  #contact {
   padding: 8px 8px;
   font-size: 19px;
-  gap: 0;
+  gap: 5px;
   font-family: sans-serif;
   display: flex;
   margin-top: 0;
@@ -114,6 +122,7 @@ nav{
   font-size: 25px;
   margin-bottom: 10px;
   margin-top: 10px;
+  display: flex;
  }
  #conta{
   color: rgb(86, 71, 216);
@@ -122,6 +131,7 @@ nav{
   text-align: center;
   margin-bottom: 10px;
   margin-top: 10px;
+  display: flex;
  }
  #contact img{
   max-width: 50px;
@@ -135,9 +145,117 @@ nav{
   font-size: 14px;
   align-items: center;
   margin-top: 15px;
+
 }
 .footer-bottom {
   font-size: 17px;
   color: #bbb;
   text-align: center;
 }
+.facebook-icon {
+  font-size: 40px; /* Change size */
+  color: blue; /* Change color */
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  display: flex;
+}
+
+.facebook-icon:hover,#instagram-icon:hover,#whatsapp-icon:hover,#twitter-icon:hover,#call-icon:hover,#logout:hover,#home:hover,#notifications:hover,#profile:hover{
+  transform: scale(1.2); /* Add hover effect */
+}
+#instagram-icon{
+  font-size: 40px; /* Change size */
+  color: rgb(147, 36, 71); /* Change color */
+  transition: transform 0.3s ease-in-out;
+  margin: 3px;
+  cursor: pointer;
+  display: flex;
+}
+#whatsapp-icon{
+  font-size: 40px; /* Change size */
+  color: rgb(21, 161, 51); /* Change color */
+  transition: transform 0.3s ease-in-out;
+  margin: 3px;
+  cursor: pointer;
+  display: flex;
+}
+#call-icon{
+  font-size: 40px; /* Change size */
+  color: rgb(19, 224, 74); /* Change color */
+  transition: transform 0.3s ease-in-out;
+  margin: 4px;
+  cursor: pointer;
+  display: flex;
+}
+#twitter-icon{
+  font-size: 40px; /* Change size */
+  transition: transform 0.3s ease-in-out;
+  margin: 3px;
+  cursor: pointer;
+  display: flex;
+}
+.logout {
+  color: rgb(217, 28, 28);
+  position: fixed; /* Keeps it in place even when scrolling */
+  top: 14px;
+  right: 9px;
+  text-decoration: none;
+  font-size: 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  padding: 5px 5px; /* Adds spacing around text */
+  border-radius: 5px; /* Optional: rounded edges */
+  z-index: 1000; /* Ensures it's above other elements */
+  display: flex;
+}
+#home{
+  font-size: 40px; /* Change size */
+  color: white; /* Change color */
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  display: flex;
+}
+#notifications{
+  font-size: 40px; /* Change size */
+  color: white; /* Change color */
+  position: fixed; /* Keeps it in place even when scrolling */
+  top: 14px;
+  right: 109px;
+  text-decoration: none;
+  font-size: 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  padding: 5px 5px; /* Adds spacing around text */
+  border-radius: 5px; /* Optional: rounded edges */
+  z-index: 1000; /* Ensures it's above other elements */
+  display: flex;
+}
+#profile{
+  font-size: 40px; /* Change size */
+  color: white; /* Change color */
+  position: fixed; /* Keeps it in place even when scrolling */
+  top: 14px;
+  right: 59px;
+  text-decoration: none;
+  font-size: 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  padding: 5px 5px; /* Adds spacing around text */
+  border-radius: 5px; /* Optional: rounded edges */
+  z-index: 1000; /* Ensures it's above other elements */
+  display: flex;
+}
+#borrow{
+  background-color: rgb(16, 101, 31);
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: sans-serif;
+  padding: 10px 20px;
+  color: white;
+  margin-left: 70px;
+  border-radius: 7px;
+
+}
+
+

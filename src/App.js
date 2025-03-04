@@ -2,14 +2,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes,Link} from 'react-router-dom';
 import './styles/App.css';
-import Posts from './components/Posts';
-import Fetchusers from './components/Fetchusers';
-import Greeting from './components/Greeting';
-import Count from './components/Count';
 import Prop from './components/Props';
 import Signup from './components/Signup';
 import Login from './components/Login';
-import Home from './components/Home'
+import Home from './components/Home';
+import Dashboard from './components/dashboard';
 function App(){
   return(
     <Router>
@@ -19,22 +16,17 @@ function App(){
       </Link>
       <div id='links'>
         <Link to='/' id='link'>Home</Link>
-        <Link to='/users' id='link'>Users</Link> <Link to ='/posts' id='link'>Posts</Link>
-        <Link to ='/greeting' id='link'>Greet</Link> <Link to ='/props' id='link'>Props</Link>
-        <Link to ='/count' id='link'>Count</Link>
+        <Link to ='/props' id='link'>Props</Link>
         <Link to ='/login' id='link'>Login</Link>
         <Link to ='/signup' id='link'>Signup</Link>
         </div>
       </nav>
       <Routes>
-        <Route path = '/users' element = {<Fetchusers/>}/>
-        <Route path = '/posts' element = {<Posts/>}/>
-        <Route path ='/greeting' element = {<Greeting/>}/>
         <Route path='/props' element = {<Prop/>}/>
-        <Route path='/count' element = {<Count/>}/>
         <Route path='/signup' element = {<Signup/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/' element={<Home/>}/>
+        <Route path="/dashboard/*" element={<Dashboard/>}/>
       </Routes>
     </Router>
   )
