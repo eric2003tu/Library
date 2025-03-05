@@ -13,9 +13,21 @@ import Posts from './Posts';
 import Greeting from './Greeting';
 import Fetchusers from './Fetchusers';
 import DashHome from './dashHome';
+import jwt, { decode } from "jsonwebtoken";
 function Dashboard(){
     const navigate = useNavigate();
-    if(!localStorage.getItem('token') || localStorage.getItem("isLogedIn") !== 'true'){
+    function getCookie(name) {
+        const cookies = document.cookie.split("; ");
+        for (const cookie of cookies) {
+          const [key, value] = cookie.split("=");
+          if (key === name) return value;
+        }
+        return null;
+      }
+      const token = getCookie("token");
+      const decodedToken = jwt-decode(token);
+      console.log('decoded Token is: '+ decodedToken);
+    if(localStorage.getItem("isLogedIn") !== 'true'){
         navigate('/');
         return;
     }
@@ -45,7 +57,6 @@ return(
         <Link to ='/dashboard/posts' id='link'>Posts</Link>
         </div>
         <Link to ='/' id='logout' className='logout' onClick={function(event){
-            localStorage.removeItem('token');
             localStorage.setItem("isLogedIn",false);
             navigate('/');
         }}><IoMdLogOut />

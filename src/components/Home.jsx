@@ -53,7 +53,7 @@ Get in touch with us through the Contact Us section, where you'll find all the w
 
 </div>
 <div id='footer'>
-    <div class="footer-bottom">
+    <div className="footer-bottom">
         <p>© 2025 E-library. All Rights Reserved.</p>
     </div>
 </div>

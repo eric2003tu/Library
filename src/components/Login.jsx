@@ -89,7 +89,6 @@ function Login(){
                 setEmailBorder("#ccc");
             }
             setLoginError("Login was successfully done!!");
-            localStorage.setItem("token",data.token);
             localStorage.setItem("isLogedIn",true);
             setLoginMessageColor('green');
             setEmailError("");

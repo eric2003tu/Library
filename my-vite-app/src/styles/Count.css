@@ -1,0 +1,16 @@
+#countDiv{
+    margin-top: 100px;
+    text-align: center;
+}
+#countBtn{
+    background-color: rgb(60, 60, 184);
+    padding: 10px 20px;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font: 100;
+    cursor: pointer;
+}
