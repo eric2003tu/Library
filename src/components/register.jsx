@@ -388,25 +388,7 @@ function Register(){
             return response.json();
         })
         .then(function(data){
-            if(!data){
-                setFnameError('');
-                setLnameError('');
-                setFnameBorder('#ccc');
-                setLnameError('');
-                setLnameBorder('#ccc');
-                setEmailError('');
-                setEmailBorder('#ccc');
-                setPasswordError('');
-                setPasswordEBorder('#ccc');
-                setConfirmpasswordError('');
-                setConfirmpasswordBorder('#ccc');
-                setPhoneError('');
-                setPhoneBorder('#ccc');
-                setGenderError('');
-                setRegisterMessage('User not registered');
-                setErrorColor('red');
-                return; 
-            }
+
             setFnameError('');
             setLnameError('');
             setFnameBorder('#ccc');
