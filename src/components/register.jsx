@@ -364,7 +364,7 @@ function Register(){
                     setErrorColor('red');
                     throw new Error("Internal server error");
                 }
-                else{
+                else if(response.status === 200){
                     setFnameError('');
                     setLnameError('');
                     setFnameBorder('#ccc');
@@ -379,7 +379,7 @@ function Register(){
                     setPhoneError('');
                     setPhoneBorder('#ccc');
                     setGenderError('');
-                    setRegisterMessage('another error occured');
+                    setRegisterMessage('User already Exists');
                     setErrorColor('red');
                     throw new Error("another error occured.");
                 }

@@ -80,15 +80,6 @@ function Login(){
         return response.json();
         })
         .then(function(data){
-            if(!data.ok){
-                setLoginError("Invalid!!");
-                setLoginMessageColor('red');
-                setEmailError("");
-                setPasswordError("");
-                setPasswordEBorder("#ccc");
-                setEmailBorder("#ccc");
-                return;
-            }
             setLoginError("Login was successfully done!!");
             localStorage.setItem("isLogedIn",true);
             setLoginMessageColor('green');
