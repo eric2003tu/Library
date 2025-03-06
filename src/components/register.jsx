@@ -383,11 +383,12 @@ function Register(){
                     setErrorColor('red');
                     throw new Error("another error occured.");
                 }
+                return;
             }
             return response.json();
         })
         .then(function(data){
-            if(!data.ok){
+            if(!data){
                 setFnameError('');
                 setLnameError('');
                 setFnameBorder('#ccc');
