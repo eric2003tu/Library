@@ -82,7 +82,7 @@ function Login(){
         })
         .then(function(data){
             if(!data){
-                setLoginError("Invalid!!");
+                setLoginError("Wrong Credentials");
                 setLoginMessageColor('red');
                 setEmailError("");
                 setPasswordError("");

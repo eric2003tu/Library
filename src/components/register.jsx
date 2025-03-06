@@ -388,7 +388,6 @@ function Register(){
             return response.json();
         })
         .then(function(data){
-
             setFnameError('');
             setLnameError('');
             setFnameBorder('#ccc');
