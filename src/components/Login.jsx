@@ -76,6 +76,7 @@ function Login(){
                 setLoginMessageColor('red');
                 throw new Error("Authorization Error!");
             }
+            return; // 🚀 Added a return here to stop execution
         }
         return response.json();
         })
