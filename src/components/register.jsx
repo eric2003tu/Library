@@ -318,7 +318,7 @@ function Register(){
                 'Content-Type' : 'application/json',
             },
             body: JSON.stringify({
-                Fname: Fname + " "+ Lname,
+                username: Fname + " "+ Lname,
                 email: email,
                 phone: phone,
                 password: password,
