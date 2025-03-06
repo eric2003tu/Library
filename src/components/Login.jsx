@@ -76,11 +76,20 @@ function Login(){
                 setLoginMessageColor('red');
                 throw new Error("Authorization Error!");
             }
-            return; // 🚀 Added a return here to stop execution
+            return;
         }
         return response.json();
         })
         .then(function(data){
+            if(!data){
+                setLoginError("Invalid!!");
+                setLoginMessageColor('red');
+                setEmailError("");
+                setPasswordError("");
+                setPasswordEBorder("#ccc");
+                setEmailBorder("#ccc");
+                return;
+            }
             setLoginError("Login was successfully done!!");
             localStorage.setItem("isLogedIn",true);
             setLoginMessageColor('green');
