@@ -87,6 +87,7 @@ function Login(){
                 setPasswordError("");
                 setPasswordEBorder("#ccc");
                 setEmailBorder("#ccc");
+                return;
             }
             setLoginError("Login was successfully done!!");
             localStorage.setItem("isLogedIn",true);

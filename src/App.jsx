@@ -7,6 +7,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Home from './components/Home';
 import Dashboard from './components/dashboard';
+import Register from './components/register';
 function App(){
   return(
     <Router>
@@ -19,11 +20,13 @@ function App(){
         <Link to ='/props' id='link'>Props</Link>
         <Link to ='/login' id='link'>Login</Link>
         <Link to ='/signup' id='link'>Signup</Link>
+        <Link to ='/register' id='link'>Register</Link>
         </div>
       </nav>
       <Routes>
         <Route path='/props' element = {<Prop/>}/>
         <Route path='/signup' element = {<Signup/>}/>
+        <Route path = '/register' element = {<Register/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/' element={<Home/>}/>
         <Route path="/dashboard/*" element={<Dashboard/>}/>
