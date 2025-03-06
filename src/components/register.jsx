@@ -480,11 +480,11 @@ function Register(){
                 setConfirmpassword(data.target.value)
             }} style={{borderColor: confirmpasswordBorder}}/>
             <p style={{color: errorColor}}>{confirmpasswordError}</p>
-            <input type='radio' name='gender' value='Male' onChange={function(data){
+            <p><input type='radio' name='gender' value='Male' onChange={function(data){
                 setGender(data.target.value)
             }}/> Male &nbsp;&nbsp; <input type='radio' name='gender' value='Female' onChange={function(data){
                 setGender(data.target.value)
-            }}/> Female
+            }}/> Female </p>
             <p style={{color: errorColor}}>{genderError}</p>
             <button type='submit' id="submitButton" name="submit">Register</button>
         </form>

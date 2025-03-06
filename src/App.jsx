@@ -19,7 +19,6 @@ function App(){
         <Link to='/' id='link'>Home</Link>
         <Link to ='/props' id='link'>Props</Link>
         <Link to ='/login' id='link'>Login</Link>
-        <Link to ='/signup' id='link'>Signup</Link>
         <Link to ='/register' id='link'>Register</Link>
         </div>
       </nav>
