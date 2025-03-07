@@ -381,7 +381,7 @@ function Register(){
                     setGenderError('');
                     setRegisterMessage('User already Exists');
                     setErrorColor('red');
-                    throw new Error("another error occured.");
+                    throw new Error("User already exists");
                 }
                 return;
             }
@@ -408,6 +408,7 @@ function Register(){
                 setRegisterMessage('');
                 navigate('/login');
             },7000)
+            return;
         })
         .catch(function(error){
             console.error("Failed to register the user: ", error);
@@ -427,6 +428,7 @@ function Register(){
             setGenderError('');
             setRegisterMessage('Failed to register the user');
             setErrorColor('red');
+            return;
         });
     }
     return(
